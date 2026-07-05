@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #1B2422;
+}
+
+/* Geperforeerde rand — de "receptstrook" */
+.perforated-edge {
+  position: relative;
+}
+.perforated-edge::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background-image: radial-gradient(circle, #C4D6C8 2.5px, transparent 2.5px);
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+}
+
+.perforated-edge-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background-image: radial-gradient(circle, #C4D6C8 2.5px, transparent 2.5px);
+  background-size: 16px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Stempel-badge */
+.stamp {
+  border: 2.5px solid currentColor;
+  border-radius: 9999px;
+  transform: rotate(-6deg);
+  position: relative;
+}
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid currentColor;
+  border-radius: 9999px;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2.5px solid #B5563A;
+  outline-offset: 2px;
+}
